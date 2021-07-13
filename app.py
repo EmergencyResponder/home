@@ -2,13 +2,14 @@ from flask import Flask, render_template, request, redirect, url_for, jsonify
 from gmaps import generateMap, getCounty, getCountyPop, getUrbanValue, getAreaOfCounty
 from MapStations import stationCalc, hospitalCalc
 import FindingStations as fs
+from api_key import API_KEY
 from model import predict
 import googlemaps
 import regex as re
 import urllib
 
 app = Flask(__name__)
-google_maps = googlemaps.Client(key='AIzaSyDdxzG0lDmmZPJGxeOybGNkEtIL10YMxQY')
+google_maps = googlemaps.Client(key=API_KEY)
 
 
 @app.route('/', methods=['POST', 'GET'])
@@ -46,6 +47,7 @@ def services():
     map_center = [40.3453453, -79.8327498]
     go_home = False
     hospital_addresses = station_addresses = ['']
+    script_src = "https://maps.googleapis.com/maps/api/js?key={}&callback=initialize_map".format(API_KEY)
     if request.method == 'POST':
         latitude = request.get_json()[0]
         longitude = request.get_json()[1]
@@ -117,7 +119,8 @@ def services():
                            closest_station=station_addresses[0],
                            markers=markers,
                            addr_county=addr_county,
-                           predicted_county_time=predicted_county_time
+                           predicted_county_time=predicted_county_time,
+                           script_src=script_src
                            )
 
 

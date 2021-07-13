@@ -2,10 +2,11 @@ from gmaps import getCitiesInCounty, getCounty
 from googlemaps import Client as GoogleMaps
 import requests
 import json
+from api_key import API_KEY
 
-Geocoder = GoogleMaps(key='AIzaSyDdxzG0lDmmZPJGxeOybGNkEtIL10YMxQY')
+Geocoder = GoogleMaps(key=API_KEY)
 # enter your api key here
-api_key = 'AIzaSyDdxzG0lDmmZPJGxeOybGNkEtIL10YMxQY'
+api_key = API_KEY
 # countyName = getCounty(94555)  # should come from user input
 # cities = ['Alameda', 'Oakland', 'Hayward', 'Pleasanton', 'Livermore', 'San Leandro', 'Berkeley', 'Dublin',
 #           'Castro Valley', 'Union City', 'Newark', 'Emeryville', 'Albany', 'San Lorenzo', 'Piedmont', 'Sunol',
