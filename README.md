@@ -15,5 +15,3 @@ Devpost: https://devpost.com/software/responder-c9gpuk?ref_content=user-portfoli
 **Abhijith Varma Mudunuri** - *Frontend*<br />
 **Anuj Naik** - *Backend*<br />
 **Jahsh Arshad** - *Backend*
-
-Edited note
